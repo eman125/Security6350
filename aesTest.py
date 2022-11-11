@@ -7,8 +7,8 @@ start = time.perf_counter()
 key = Fernet.generate_key()
 f = Fernet(key)
 token = f.encrypt(b"my deep dark secret")
-token
-print("before: ", token)
+
+print("Encrypted: ", token)
 middle = time.perf_counter()
 print(f'Finished encryption in {round(middle-start, 2)} second(s)')
 
