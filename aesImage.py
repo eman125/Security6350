@@ -23,7 +23,7 @@ while i < len(dirList):
     encrypted = f.encrypt(token)
 
     #writing encrypted image file
-    with open (encFilePath + "/img" + str(i) + ".ARW", 'wb') as encryptedFile:
+    with open(encFilePath + "/" + dirList[i], 'wb') as encryptedFile:
         encryptedFile.write(encrypted)
     print("Encrypted file ", i)
     i += 1
@@ -39,7 +39,7 @@ while i < len(dirList):
 
     decrypted = f.decrypt(encrypted)
 
-    with open(decFilePath + "/" + str(i) + ".ARW", 'wb') as decryptedFile:
+    with open(decFilePath + "/" + dirList[i], 'wb') as decryptedFile:
         decryptedFile.write(decrypted)
     print("Decrypted file ", i)
     i += 1
