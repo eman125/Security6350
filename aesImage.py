@@ -29,7 +29,7 @@ while i < len(dirList):
     i += 1
 
 middle = time.perf_counter()
-print(f'***Finished encryption in {round(middle-start, 2)} second(s)***')
+print("Finished encryption.")
 
 dirList = os.listdir(encFilePath)
 i = 0
@@ -45,4 +45,6 @@ while i < len(dirList):
     i += 1
 
 finish = time.perf_counter()
+print(f'***Finished encryption in {round(middle-start, 2)} second(s)***')
+print(f'***Finished decryption in {round(finish-middle, 2)} second(s)***')
 print(f'***Finished overall in {round(finish-start, 2)} second(s)***')
