@@ -42,6 +42,7 @@ middle = time.perf_counter()
 print("Finished the encryption.")
 
 dirList = os.listdir(encFilePath)
+#removing hidden files from new dirList
 i = 0
 while i < len(dirList):
     if(dirList[i][0] == "."):
@@ -50,6 +51,9 @@ while i < len(dirList):
         i += 1
     else:
         i += 1
+
+#beginning decryption timestamp
+startDec = time.perf_counter()
 
 i = 0
 while i < len(dirList):
@@ -66,5 +70,5 @@ while i < len(dirList):
 
 finish = time.perf_counter()
 print(f'***Finished encryption in {round(middle-start, 2)} second(s)***')
-print(f'***Finished decryption in {round(finish-middle, 2)} second(s)***')
-print(f'***Finished overall in {round(finish-start, 2)} second(s)***')
+print(f'***Finished decryption in {round(finish-startDec, 2)} second(s)***')
+print(f'***Finished overall in {round((middle-start) + (finish-startDec), 2)} second(s)***')
