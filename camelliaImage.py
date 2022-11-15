@@ -7,6 +7,16 @@ dirList = os.listdir(filesPath) #makes string array of all file names in directo
 encFilePath = "/Users/emmanuelhuitron/Desktop/Encrypted"
 decFilePath = "/Users/emmanuelhuitron/Desktop/Decrypted"
 
+#removing hidden files from array that should not be encrypted
+i = 0
+while i < len(dirList):
+    if(dirList[i][0] == "."):
+        print("removing file: ", dirList[i], " from dirList")
+        dirList.remove(dirList[i])
+        i += 1
+    else:
+        i += 1
+
 #defining key and initialization vector
 c1 = camellia.CamelliaCipher(key=b'16 byte long key', IV=b'16 byte iv. abcd', mode=camellia.MODE_CBC)
 c2 = camellia.CamelliaCipher(key=b'16 byte long key', IV=b'16 byte iv. abcd', mode=camellia.MODE_CBC)
@@ -30,6 +40,16 @@ while i < len(dirList):
 
 middle = time.perf_counter()
 print("Finished the encryption.")
+
+dirList = os.listdir(encFilePath)
+i = 0
+while i < len(dirList):
+    if(dirList[i][0] == "."):
+        print("removing file: ", dirList[i], " from dirList")
+        dirList.remove(dirList[i])
+        i += 1
+    else:
+        i += 1
 
 i = 0
 while i < len(dirList):

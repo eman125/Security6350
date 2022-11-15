@@ -1,8 +1,9 @@
 import os
 
-path = "/Users/emmanuelhuitron/Desktop"
+path = input("Please ender directory: ")
 dirList = os.listdir(path)
 
-print("Files and directories in ", path, ": ")
-print(dirList)
-print("second item in list is: ", dirList[1])
+i = 1
+print("deleting second file which is: ", dirList[1])
+dirList.remove(dirList[i])
+print("dirList is now: ", dirList)
