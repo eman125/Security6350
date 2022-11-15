@@ -11,6 +11,16 @@ dirList = os.listdir(filesPath)
 encFilePath = "/Users/emmanuelhuitron/Desktop/Encrypted"
 decFilePath = "/Users/emmanuelhuitron/Desktop/Decrypted"
 
+#removing hidden files from array that should not be encrypted
+i = 0
+while i < len(dirList):
+    if(dirList[i][0] == "."):
+        print("removing file: ", dirList[i], " from dirList")
+        dirList.remove(dirList[i])
+        i += 1
+    else:
+        i += 1
+
 #starting timer
 start = time.perf_counter()
 
@@ -32,6 +42,16 @@ middle = time.perf_counter()
 print("Finished encryption.")
 
 dirList = os.listdir(encFilePath)
+#removing hidden files from array that should not be decrypted
+i = 0
+while i < len(dirList):
+    if(dirList[i][0] == "."):
+        print("removing file: ", dirList[i], " from dirList")
+        dirList.remove(dirList[i])
+        i += 1
+    else:
+        i += 1
+
 i = 0
 while i < len(dirList):
     with open(encFilePath + "/" + dirList[i], 'rb') as encryptedFile:
