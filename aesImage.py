@@ -52,6 +52,7 @@ while i < len(dirList):
     else:
         i += 1
 
+startDec = time.perf_counter()
 i = 0
 while i < len(dirList):
     with open(encFilePath + "/" + dirList[i], 'rb') as encryptedFile:
@@ -66,5 +67,5 @@ while i < len(dirList):
 
 finish = time.perf_counter()
 print(f'***Finished encryption in {round(middle-start, 2)} second(s)***')
-print(f'***Finished decryption in {round(finish-middle, 2)} second(s)***')
-print(f'***Finished overall in {round(finish-start, 2)} second(s)***')
+print(f'***Finished decryption in {round(finish-startDec, 2)} second(s)***')
+print(f'***Finished overall in {round((middle-start) + (finish-startDec), 2)} second(s)***')
