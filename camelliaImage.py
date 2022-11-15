@@ -14,28 +14,35 @@ c2 = camellia.CamelliaCipher(key=b'16 byte long key', IV=b'16 byte iv. abcd', mo
 #starting timer
 start = time.perf_counter()
 
-#opening image and assigning bytes to the var "token"
-with open(filesPath + "/" + dirList[0], 'rb') as originalFile:
-    token = originalFile.read()
+i = 0
+while i < len(dirList):
+    #opening image and assigning bytes to the var "token"
+    with open(filesPath + "/" + dirList[i], 'rb') as originalFile:
+        token = originalFile.read()
 
-encrypted = c1.encrypt(token)
+    encrypted = c1.encrypt(token)
 
-#writing the encrypted image file
-with open(encFilePath + "/" + dirList[0], 'wb') as encryptedFile:
-    encryptedFile.write(encrypted)
-print("Encrypted the file.")
+    #writing the encrypted image file
+    with open(encFilePath + "/" + dirList[i], 'wb') as encryptedFile:
+        encryptedFile.write(encrypted)
+    print("Encrypted file ", i)
+    i += 1
 
 middle = time.perf_counter()
+print("Finished the encryption.")
 
-#opening encrypted image
-with open(encFilePath + "/" + dirList[0], 'rb') as encryptedFile:
-    encrypted = encryptedFile.read()
+i = 0
+while i < len(dirList):
+    #opening encrypted image
+    with open(encFilePath + "/" + dirList[i], 'rb') as encryptedFile:
+        encrypted = encryptedFile.read()
 
-decrypted = c2.decrypt(encrypted)
+    decrypted = c2.decrypt(encrypted)
 
-with open(decFilePath + "/" + dirList[0], 'wb') as decryptedFile:
-    decryptedFile.write(decrypted)
-print("Decrypted the file.")
+    with open(decFilePath + "/" + dirList[i], 'wb') as decryptedFile:
+        decryptedFile.write(decrypted)
+    print("Decrypted file ", i)
+    i += 1
 
 finish = time.perf_counter()
 print(f'***Finished encryption in {round(middle-start, 2)} second(s)***')
