@@ -8,8 +8,8 @@ print("Key: ", key)
 
 filesPath = input("Please enter directory of desired files: ")
 dirList = os.listdir(filesPath)
-encFilePath = "/Users/emmanuelhuitron/Desktop/Encrypted"
-decFilePath = "/Users/emmanuelhuitron/Desktop/Decrypted"
+encFilePath = input("Enter directory for saving encrypted files: ")
+decFilePath = input("Enter directory for saving decrypted files: ")
 
 #removing hidden files from array that should not be encrypted
 i = 0

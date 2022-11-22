@@ -4,8 +4,8 @@ import camellia
 
 filesPath = input("Please enter directory of desired files: ")
 dirList = os.listdir(filesPath) #makes string array of all file names in directory
-encFilePath = "/Users/emmanuelhuitron/Desktop/Encrypted"
-decFilePath = "/Users/emmanuelhuitron/Desktop/Decrypted"
+encFilePath = input("Enter directory for saving encyrpted files: ")
+decFilePath = input("Enter direcory for saving decrypted files: ")
 
 #removing hidden files from array that should not be encrypted
 i = 0
