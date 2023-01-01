@@ -2,8 +2,8 @@
 def rm_dot(dirList):
     i = 0
     while i < len(dirList):
-        if(dirList[i][0] == "."):
-            print("Removing file: ", dirList[i], " from dirList")
+        if(dirList[i][0] == "." or os.path.isdir(dirList[i])):
+            print("Removing: ", dirList[i], " from dirList")
             dirList.remove(dirList[i])
             i += 1
         else:
