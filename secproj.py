@@ -1,4 +1,5 @@
 import typer
+import os
 import aestest
 
 app = typer.Typer()
