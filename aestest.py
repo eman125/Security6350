@@ -12,7 +12,7 @@ def aes_func(filePath, encFilePath, decFilePath):
     dirList = os.listdir(filePath)
 
     #remove hidden files from array that should not be encrypted
-    dirList = rmdot.rm_dot(dirList)
+    dirList = rmdot.rm_dot(dirList, filePath)
 
     #creating start timestamp
     start = time.perf_counter()
