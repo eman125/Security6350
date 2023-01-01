@@ -7,8 +7,8 @@ app = typer.Typer()
 def aes(filepath: str, custom_path: bool = False):
     print(f"Running in secproj; filepath: {filepath} Is custom: {custom_path}")
     if(custom_path == False):
-        encFilePath = filepath + "/encrypted"
-        decFilePath = filepath + "/decrypted"
+        encFilePath = os.path.join(filepath, "encrypted")
+        decFilePath = os.path.join(filepath, "decrypted")
     else:
         encFilePath = input("Enter directory for saving encrypted files: ")
         decFilePath = input("Enter directory for saving decrypted files: ")
