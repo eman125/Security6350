@@ -20,13 +20,13 @@ def aes_func(filePath, encFilePath, decFilePath):
     i = 0
     while i < len(dirList):
         #opening image and assigning bytes to token var
-        with open(filePath + "/" + dirList[i], 'rb') as originalFile:
+        with open(os.path.join(filePath, dirList[i]), 'rb') as originalFile:
             token = originalFile.read()
 
         encrypted = f.encrypt(token)
 
         #writing encrypted image file
-        with open(encFilePath + "/" + dirList[i], 'wb') as encryptedFile:
+        with open(os.path.join(encFilePath, dirList[i]), 'wb') as encryptedFile:
             encryptedFile.write(encrypted)
         print("Encrypted file ", i)
         i += 1
