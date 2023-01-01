@@ -1,3 +1,5 @@
+import os
+
 #remove hidden files (.files) from array of file names
 def rm_dot(dirList):
     i = 0
