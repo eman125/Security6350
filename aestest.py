@@ -34,4 +34,22 @@ def aes_func(filePath, encFilePath, decFilePath):
     middle = time.perf_counter()
     print("\nFinished encryption.\n")
 
+    dirList = os.listdir(encFilePath)
+    dirList = rmdot.rm_dot(dirList, encFilePath)
 
+    startDec = time.perf_counter()
+    i=0
+    while i < len(dirList):
+        with open(os.path.join(encFilePath, dirList[i]), 'rb') as encryptedFile:
+            encrypted = encryptedFile.read()
+
+        decrypted = f.decrypt(encrypted)
+
+        with open(os.path.join(decFilePath, dirList[i]), 'wb') as decryptedFile:
+            decryptedFile.write(decrypted)
+        print("Decrypted file ", i)
+        i += 1
+
+    finish = time.perf_counter()
+    print(f"\nFinished decryption in {round(finish-startDec, 2)} second(s)")
+    print(f"Finished overall in {round((middle-start) + (finish-startDec), 2)} second(s)")
