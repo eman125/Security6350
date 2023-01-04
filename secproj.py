@@ -10,8 +10,10 @@ def aes(filepath: str, custom_path: bool = False):
     if(custom_path == False):
         encFilePath = os.path.join(filepath, "encrypted")
         decFilePath = os.path.join(filepath, "decrypted")
-        os.mkdir(encFilePath)
-        os.mkdir(decFilePath)
+        if not(os.path.exists(encFilePath)):
+            os.mkdir(encFilePath)
+        if not(os.path.exists(decFilePath)):
+            os.mkdir(decFilePath)
     else:
         encFilePath = input("Enter directory for saving encrypted files: ")
         decFilePath = input("Enter directory for saving decrypted files: ")
